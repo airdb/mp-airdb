@@ -1,17 +1,8 @@
-up:
-	docker-compose up -d --build --force-recreate
+all: build run
+
+run:
+	docker run -it -v `pwd`:/srv/uniapp/dist/build/ mp-airdb npm run build:mp-weixin
+
 build:
-	docker-compose build
+	docker build -t mp-aridb .
 
-start:
-	docker-compose start
-
-stop:
-	docker-compose stop
-
-restart:
-	docker-compose restart
-
-bash:
-	#docker-compose exec airdb-dzq bash
-	docker run -it  airdb-dzq bash
