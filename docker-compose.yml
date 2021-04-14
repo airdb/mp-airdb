@@ -1,0 +1,15 @@
+version: '2.0'
+
+services:
+  airdb-dzq:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: 'airdb-dzq'
+    volumes:
+      - ./release/:/srv/niapp/release/
+    ports:
+      - 8888:80
+    environment:
+      - ENV="test"
+    container_name: airdb-dzq
